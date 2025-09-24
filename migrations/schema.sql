@@ -1,10 +1,4 @@
-/* eslint-disable camelcase */
-
-exports.shorthands = undefined;
-
-exports.up = (pgm) => {
-  pgm.sql(`
-    -- Tabla de Empresas (Tenants)
+-- Tabla de Empresas (Tenants)
     CREATE TABLE companies (
       id SERIAL PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
@@ -67,16 +61,4 @@ exports.up = (pgm) => {
       stage VARCHAR(50) NOT NULL CHECK(stage IN ('antes', 'despues')),
       taken_at TIMESTAMPTZ NOT NULL
     );
-  `);
-};
-
-exports.down = (pgm) => {
-  pgm.sql(`
-    DROP TABLE IF EXISTS photos;
-    DROP TABLE IF EXISTS consultations;
-    DROP TABLE IF EXISTS patients;
-    DROP TABLE IF EXISTS users;
-    DROP TABLE IF EXISTS locations;
-    DROP TABLE IF EXISTS companies;
-  `);
-};
+  

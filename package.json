@@ -8,7 +8,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"tsc -w\" \"nodemon\"",
-    "migrate": "node-pg-migrate"
+    "migrate": "node ./run-migration.cjs"
   },
   "nodemonConfig": {
     "watch": [
